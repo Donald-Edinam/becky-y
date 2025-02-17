@@ -121,10 +121,17 @@ function App() {
                     Elevator Pitch
                   </h3>
                   <p className="text-purple-200 mb-4">
-                    Coming soon - A concise presentation of my skills and aspirations.
+                    Hi, I'm Rebekah Adjoah Mensah, a tech enthusiast with a strong foundation in virtual assistance and AI, certified by ALX AI Career Essentials. I'm currently pursuing a software engineering course to build scalable and innovative solutions. Alongside my technical expertise, I have hands-on experience in childcare and teaching, which has honed my patience, communication, and problem-solving skills.
                   </p>
+                  <p className="text-purple-200 mb-4">
+                    Known for my adaptability, creativity, and leadership, I thrive in dynamic environments and enjoy finding innovative ways to tackle challenges. This unique blend of technical knowledge, interpersonal abilities, and notable traits allows me to create impactful solutions while effectively collaborating with diverse teams.
+                  </p>
+                  <div className="text-purple-200 mb-4">
+                    <p className="mb-2">Email: rebekahadjoahmensah@gmail.com </p>
+                    <p>Contact: 0558671885</p>
+                  </div>
                   <div className="flex items-center text-amber-400 group-hover:text-amber-300 transition-colors">
-                    <span className="mr-2">View Pitch</span>
+                    <span className="mr-2">Contact Me</span>
                     <ChevronDown className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -139,7 +146,7 @@ function App() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-display font-bold text-purple-900 mb-8">Let's Talk!</h2>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="px-6 py-3 bg-purple-900 text-white rounded-full hover:bg-purple-800 transition-colors">
+            <a href="mailto:rebekahadjoahmensah@gmail.com " className="px-6 py-3 bg-purple-900 text-white rounded-full hover:bg-purple-800 transition-colors">
               Send Email
             </a>
             <a href="#" className="px-6 py-3 bg-amber-400 text-purple-900 rounded-full hover:bg-amber-300 transition-colors">
