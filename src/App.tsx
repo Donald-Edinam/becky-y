@@ -41,9 +41,9 @@ function App() {
       <section className="min-h-screen flex flex-col justify-center relative px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto w-full relative z-10">
           <div className="text-center mb-16">
-            <div className="mb-4 text-amber-400 font-display">
+            {/* <div className="mb-4 text-amber-400 font-display">
               {new Date().getFullYear()}
-            </div>
+            </div> */}
             <h1 className="text-6xl font-display font-bold text-white mb-4 animate-fade-in">
               Rebekah Adjoah Mensah
             </h1>
