@@ -1,7 +1,35 @@
-import { Github, Linkedin, Mail, ChevronDown, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronDown, Sparkles, Award } from 'lucide-react';
 import Image from './assets/image.png'
+import { useState, useEffect, useRef } from 'react';
+
+// Import certificate images (you'll need to add these to your project)
+import AiCECertificate from './assets/aice-certificate.jpg'
+import VACertificate from './assets/va-certificate.jpg'
+// import ProblemSolvingCertificate from './assets/problem-solving-certific'
 
 function App() {
+  const [videoSectionVisible, setVideoSectionVisible] = useState(false);
+  const videoSectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVideoSectionVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (videoSectionRef.current) {
+      observer.observe(videoSectionRef.current);
+    }
+
+    return () => {
+      if (videoSectionRef.current) {
+        observer.unobserve(videoSectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900">
       {/* Decorative Circles */}
@@ -76,6 +104,77 @@ function App() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section ref={videoSectionRef} className="py-20 bg-purple-800 relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-display font-bold text-white mb-12 text-center">Featured Video</h2>
+          <div className="aspect-video rounded-xl overflow-hidden shadow-xl mx-auto max-w-3xl">
+            {videoSectionVisible && (
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/DGBCVT2oVI0?autoplay=0"
+                title="Rebekah Adjoah Mensah - Featured Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            )}
+          </div>
+          <div className="text-center mt-6">
+            <p className="text-purple-200">Watch my introduction and showcase video</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Certificates Section */}
+      <section className="py-20 bg-purple-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-display font-bold text-purple-900 mb-12 text-center">Certificates & Achievements</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {[
+              {
+                title: "ALX AiCE",
+                date: "March 2023",
+                issuer: "ALX Africa",
+                description: "AI Career Essentials certification covering fundamentals of artificial intelligence and its applications.",
+                image: AiCECertificate
+              },
+              {
+                title: "Virtual Assistance",
+                date: "June 2023",
+                issuer: "ALX Africa",
+                description: "Professional certification in virtual assistance and remote collaboration tools.",
+                image: VACertificate
+              }
+            ].map((cert, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={cert.image || "/api/placeholder/400/200"} 
+                    alt={`${cert.title} Certificate`}
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <Award className="w-6 h-6 text-amber-400 mr-2" />
+                    <h3 className="text-xl font-display font-semibold text-purple-900">{cert.title}</h3>
+                  </div>
+                  <p className="text-purple-700 text-sm mb-3">Issued by {cert.issuer} • {cert.date}</p>
+                  <p className="text-purple-800">{cert.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* <div className="text-center mt-12">
+            <a href="#" className="px-6 py-3 bg-purple-900 text-white rounded-full hover:bg-purple-800 transition-colors inline-flex items-center">
+              <span>View All Credentials</span>
+              <ChevronDown className="ml-2 w-4 h-4 transform rotate-270" />
+            </a>
+          </div> */}
+        </div>
+      </section>
+
       {/* Expertise Section */}
       <section className="py-20 bg-purple-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,8 +226,8 @@ function App() {
                     Known for my adaptability, creativity, and leadership, I thrive in dynamic environments and enjoy finding innovative ways to tackle challenges. This unique blend of technical knowledge, interpersonal abilities, and notable traits allows me to create impactful solutions while effectively collaborating with diverse teams.
                   </p>
                   <div className="text-purple-200 mb-4">
-                    <p className="mb-2">Email: rebekahadjoahmensah@gmail.com </p>
-                    <p>Contact: 0558671885</p>
+                    <p className="mb-2">Email:  </p>
+                    <p>Contact: </p>
                   </div>
                   <div className="flex items-center text-amber-400 group-hover:text-amber-300 transition-colors">
                     <span className="mr-2">Contact Me</span>
