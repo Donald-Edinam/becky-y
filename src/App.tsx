@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 // Import certificate images (you'll need to add these to your project)
 import AiCECertificate from './assets/aice-certificate.jpg'
 import VACertificate from './assets/va-certificate.jpg'
-// import ProblemSolvingCertificate from './assets/problem-solving-certific'
+import PitchVideo from './assets/pitch-video.mp4' 
 
 function App() {
   const [videoSectionVisible, setVideoSectionVisible] = useState(false);
@@ -107,12 +107,12 @@ function App() {
       {/* Video Section */}
       <section ref={videoSectionRef} className="py-20 bg-purple-800 relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-display font-bold text-white mb-12 text-center">Featured Video</h2>
+          <h2 className="text-4xl font-display font-bold text-white mb-12 text-center">Featured Elevator Pitch</h2>
           <div className="aspect-video rounded-xl overflow-hidden shadow-xl mx-auto max-w-3xl">
             {videoSectionVisible && (
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/DGBCVT2oVI0?autoplay=0"
+                src={PitchVideo}
                 title="Rebekah Adjoah Mensah - Featured Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
